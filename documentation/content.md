@@ -20,3 +20,12 @@ Quantity:
 2. min is 1 and max can be of anything ==> {1, } - minimum 1 is mandatory
 3. min is 0 and max can be of anything ==> {0, } - Optional
 Grouping
+
+
+
+
+API 
+1. Local Storage - User Token, Other local data & for performance enhancements
+2. Local JSON - this will be used for data such as unique/static 
+3. Public API - Images, COVID information, Weather API, 
+4. Private API - bound to our project, Google (auth token, Secret Key)
