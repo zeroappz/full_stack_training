@@ -177,7 +177,7 @@
   }
 </style>
 
-<main class="main">
+<main class="container">
   <div class="content">
     <div class="left-side">
       <svg
@@ -232,29 +232,52 @@
         <input
           type="text"
           id="firstName"
-          required
+          class="form-control"
           minlength="4"
           formControlName="firstName"
         />
-        <!-- <div class="error" *ngIf="signUpForm.get('firstName')?.errors?.required && signUpForm.get('firstName')?.touched">Please enter a first name</div> -->
-        <!-- <div *ngIf="signUpForm.get('firstName')?.hasError('required') && signUpForm.get('firstName')?.touched" class="alert">Please enter a first name</div> -->
+        <!-- <div class="error" *ngIf="signUpForm.get('firstName')?.errors?. && signUpForm.get('firstName')?.touched">Please enter a first name</div> -->
+        <!-- <div *ngIf="signUpForm.get('firstName')?.hasError('') && signUpForm.get('firstName')?.touched" class="alert">Please enter a first name</div> -->
         <br />
         <label for="lastName"> Last Name: </label>
-        <input type="text" id="lastName" formControlName="lastName" />
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          formControlName="lastName"
+        />
         <br />
         <label for="age"> Age: </label>
-        <input type="number" id="age" required formControlName="age" />
+        <input
+          type="number"
+          class="form-control"
+          id="age"
+          formControlName="age"
+        />
+
+        <ng-template
+          [ngIf]="
+            signUpForm.get('age')?.hasError('') &&
+            signUpForm.get('age')?.touched
+          "
+        >
+          <div class="alert">Please enter an age</div>
+        </ng-template>
+
         <br />
         <label for="email"> Email: </label>
-        <input type="email" id="email" required formControlName="email" />
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+        />
         <br />
         <label for="password"> Password: </label>
         <input
           type="password"
           id="password"
-          minlength="6"
-          maxlength="12"
-          required
+          class="form-control"
           formControlName="password"
         />
         <br />
@@ -262,11 +285,28 @@
         <input
           type="password"
           id="confirmPassword"
-          required
-          minlength="6"
-          maxlength="12"
+          class="form-control"
           formControlName="confirmPassword"
         />
+        <br />
+        <br />
+        <label for="gender"> Gender: </label>
+        <select id="gender" class="form-control" formControlName="gender">
+          <option *ngFor="let gender of genders" [value]="gender">
+            {{ gender }}
+          </option>
+        </select>
+        <br />
+        <!-- Select Country -->
+        <label for="country"> Country: </label>
+        <select id="country" class="form-control" formControlName="country">
+          <option *ngFor="let country of countries" [value]="country">
+            {{ country }}
+          </option>
+        </select>
+        <br />
+        <label for="address"> Address: </label>
+        <textarea class="form-control" formControlName="address"></textarea>
         <br />
         <button class="btn btn-primary" (click)="onSubmit()">Sign Up</button>
         |
