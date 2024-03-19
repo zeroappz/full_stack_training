@@ -32,17 +32,23 @@
         </div>
       </div>
     </div>
-    <br>
+    <br />
     <div class="col-md-4 offset-md-2">
       <div class="col">url: {{ url }}</div>
     </div>
-    <br>
+    <br />
+
+    <!-- <br>
+    <div class="col-md-4 offset-md-2">
+      <app-toast></app-toast>
+    </div>
+    <br>-->
   </div>
 
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th >#</th>
+        <th>#</th>
         <th>Title</th>
         <th>Description</th>
         <th>Thumbnail</th>
@@ -51,7 +57,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of items; let i = index">
-        <td>{{ i+1 }}</td>
+        <td>{{ i + 1 }}</td>
         <td>{{ item.title }}</td>
         <td>{{ item.description }}</td>
         <td>
@@ -63,7 +69,11 @@
           />
         </td>
         <td>
-          <a target="_blank" href="https://www.youtube.com/watch?v={{ item.id }}">Play Video</a>
+          <a
+            target="_blank"
+            href="https://www.youtube.com/watch?v={{ item.id }}"
+            >Play Video</a
+          >
         </td>
       </tr>
     </tbody>

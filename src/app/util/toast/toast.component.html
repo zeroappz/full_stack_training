@@ -1,0 +1,24 @@
+<div class="row p-2">
+  <div class="col-6 mx-auto">Toast Component</div>
+</div>
+
+<div class="row p-2">
+  <div class="col-6 mx-auto">
+    <button
+      class="btn btn-primary"
+      type="button"
+      (click)="showSuccess('Hi Dude!', 'Registration Success')"
+    >
+      Success
+    </button>
+    <button class="btn btn-info" type="button" (click)="showInfo()">
+      Info
+    </button>
+    <button class="btn btn-warning" type="button" (click)="showWarning()">
+      Warning
+    </button>
+    <button class="btn btn-danger" type="button" (click)="showError()">
+      Error
+    </button>
+  </div>
+</div>

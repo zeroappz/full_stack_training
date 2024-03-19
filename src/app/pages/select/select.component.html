@@ -1,0 +1,59 @@
+<div class="container p-4">
+  <div class="row p-4">
+    <div class="col-2">Angular Select</div>
+    <div class="col-4">
+      <button class="btn btn-primary" type="button">Select</button>
+    </div>
+  </div>
+  <div class="row p-4">
+    <div class="col-4">
+      <select
+        class="form-select form-select-sm"
+        (click)="clickOnSelectSimple()"
+        (change)="changeOnSelectSimple($event)"
+        [(ngModel)]="selectValueSimple"
+      >
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+      </select>
+      <br />
+      changeOnSelectSimple : selectValueSimple: {{ selectValueSimple }}<br />
+    </div>
+  </div>
+
+  <div class="row p-4">
+    <div class="col-2">Angular Select Dynamic</div>
+    <div class="col-4">
+      <!-- items: {{items | json}} -->
+      <select
+        #selectedData
+        class="form-select form-select-sm"
+        (click)="clickOnSelect()"
+        (change)="changeOnSelect($event, selectedData.value)"
+        [(ngModel)]="selectValue"
+        (ngModelChange)="onModelChange($event)"
+      >
+        <option
+          *ngFor="let item of items; let indexItem = index"
+          value="{{ item.value }}"
+        >
+          {{ item.label }}
+        </option>
+      </select>
+      <br />
+      <span class="text-danger"
+        >changeOnSelect : selectValue: {{ selectValue }}</span
+      >
+      <br />
+    </div>
+  </div>
+
+  <div class="row p-2">
+    <div class="col-6 mx-auto">
+      <app-toast></app-toast>
+    </div>
+  </div>
+</div>

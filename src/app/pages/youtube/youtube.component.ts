@@ -3,13 +3,14 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ItemsService } from '../../services/items.service';
+import { ToastComponent } from '../../util/toast/toast.component';
 // import { ItemsService } from '../../services/items.service';
 
 @Component({
   selector: 'app-youtube',
   standalone: true,
   imports: [
-    RouterModule, FormsModule, CommonModule
+    RouterModule, FormsModule, CommonModule, ToastComponent
   ],
   templateUrl: './youtube.component.html',
   styleUrl: './youtube.component.scss'
