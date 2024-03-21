@@ -8,7 +8,7 @@ import { SelectComponent } from './pages/select/select.component';
 export const routes: Routes = [
   // Default Path
   {
-    path: '', redirectTo: 'select', pathMatch: 'full'
+    path: '', redirectTo: 'youtube', pathMatch: 'full'
   },
   // Path for the signin page
   {

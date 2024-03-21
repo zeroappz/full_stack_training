@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ItemsService } from '../../services/items.service';
 import { ToastComponent } from '../../util/toast/toast.component';
+import { environment } from '../../../environments/environment';
 // import { ItemsService } from '../../services/items.service';
 
 @Component({
@@ -31,7 +32,7 @@ export class YoutubeComponent {
 
   search() {
     console.log('Search');
-    const googleAPIKey = 'AIzaSyALUalk1RpHhgrTfQjiADQMHwJ7Tw87cjQ';
+    const googleAPIKey = environment.googleAPIKey;
     let url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10';
     url += `&q=${this.searchInput}`;
     url += '&type=video&order=relevance';
