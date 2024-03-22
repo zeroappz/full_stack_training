@@ -18,7 +18,7 @@ import { environment } from '../../../environments/environment';
 })
 export class YoutubeComponent {
 
-  title = 'YouTube API';
+  title = '';
   searchInput: string;
   items: any[];
   url: string;
@@ -28,6 +28,12 @@ export class YoutubeComponent {
     this.searchInput = 'Sathyabama University';
     this.items = [];
     this.url = '';
+  }
+
+  // Life Cycle Methods NgOnInit
+  ngOnInit() {
+    console.log('Youtube API Component Loaded');
+    this.getYoutubeApi();
   }
 
   search() {
@@ -46,7 +52,7 @@ export class YoutubeComponent {
       const result = data['items'];
       if (result !== undefined) {
         const items: any[] = [];
-        result.forEach((element:any) => {
+        result.forEach((element: any) => {
           const id = element['id']['videoId'];
           const title = element['snippet']['title'];
           const description = element['snippet']['description'];
@@ -59,4 +65,22 @@ export class YoutubeComponent {
     });
   }
 
+  getYoutubeApi() {
+    // // cors origin
+    // const httpOptions = {
+    //   headers: {
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Content-Type': 'application/json',
+    //   }
+    // }
+
+    console.log('getYoutubeApi');
+    // const url = environment.apiBaseUrl + '/youtube'; // http://127.0.0.1:3000/youtube
+    const url = 'http://localhost:3000/youtube';
+    this.itemsService.getItems(url).subscribe((data) => {
+      console.log(data);
+      this.title = data['title'];
+      console.log(this.title);
+    })
+  }
 }

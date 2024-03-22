@@ -29,3 +29,8 @@ API
 2. Local JSON - this will be used for data such as unique/static 
 3. Public API - Images, COVID information, Weather API, 
 4. Private API - bound to our project, Google (auth token, Secret Key)
+
+# CORS POLICY
+  - youtube:1 Access to fetch at 'http://localhost:3000/youtube' from origin 'http://localhost:4200' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+
+  - Cross Origin Resource Sharing (HTTP/HTTPS)

@@ -11,7 +11,15 @@ export class ItemsService {
 
   // getItems()
   getItems(url: string): Observable<any>{
-    const result = this.http.get<any>(url).pipe(
+    // cors origin
+    const httpOptions = {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      }
+    }
+
+    const result = this.http.get<any>(url, httpOptions).pipe(
       catchError(this.handleError('getItems', [])),
     );
     return result;
